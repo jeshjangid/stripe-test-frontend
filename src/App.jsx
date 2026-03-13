@@ -1,23 +1,24 @@
-import PaymentTable from "./components/PaymentsTable"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Checkout from "./components/Checkout"
-
+import PaymentTable from "./components/PaymentsTable"
+import Success from "./Success"
+import Cancel from "./Cancel"
 
 function App(){
-
  return(
-
- <div>
-
-  <h1>Stripe Payment System</h1>
-
-  <Checkout/>
-
-  <PaymentTable/>
-
- </div>
-
+  <BrowserRouter>
+   <Routes>
+    <Route path="/" element={
+      <>
+       <Checkout/>
+       <PaymentTable/>
+      </>
+    }/>
+    <Route path="/success" element={<Success/>}/>
+    <Route path="/cancel" element={<Cancel/>}/>
+   </Routes>
+  </BrowserRouter>
  )
-
 }
 
 export default App
